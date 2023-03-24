@@ -1,3 +1,3 @@
 # Proyecto Final 2º Trimestre
 ## Eloy Martos y José Manuel Luque
-![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQASKJ1EHqumPrmZxBRglpeSvpWzLEyCMZ5vA&usqp=CAU)
+![alt text](https://yt3.googleusercontent.com/EmcNYKoW2FDaWreuqsWiuZDukcgrweyUi1yHSn24wGpF-MqWRzbNwjDgtlrZUvQVZo2kK7gW=s900-c-k-c0x00ffffff-no-rj)
