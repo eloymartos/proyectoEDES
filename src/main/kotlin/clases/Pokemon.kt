@@ -16,6 +16,4 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
         this.vida = vida
     }
 
-
-
 }

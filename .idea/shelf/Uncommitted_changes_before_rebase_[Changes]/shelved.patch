@@ -1,0 +1,18 @@
+Index: src/main/kotlin/clases/Pokemon.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package clases\r\n\r\nclass Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {\r\n\r\n    var nombre : String\r\n    var lore : String\r\n    var tipo : Tipo\r\n    var fuerza : Int\r\n    var vida : Int\r\n\r\n    init {\r\n        this.nombre = nombre\r\n        this.lore = lore\r\n        this.tipo = tipo\r\n        this.fuerza = fuerza\r\n        this.vida = vida\r\n    }\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/clases/Pokemon.kt b/src/main/kotlin/clases/Pokemon.kt
+--- a/src/main/kotlin/clases/Pokemon.kt	(revision 595edc07bd108270793c316ba2f1cf6ab90d7bc4)
++++ b/src/main/kotlin/clases/Pokemon.kt	(date 1679674819853)
+@@ -16,6 +16,4 @@
+         this.vida = vida
+     }
+ 
+-
+-
+ }
+\ No newline at end of file
