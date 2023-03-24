@@ -53,8 +53,8 @@ class Tipo(cadena:String) {
     }
     fun efectividad(otro:Tipo):Double{
         var respuesta = 0.0
-        if (supereficaces[this.tipo]?.contains(otro.tipo) == true) respuesta = 2.0 else{
-            if (listanomuy[this.tipo]?.contains(otro.tipo) == true) respuesta = 0.5 else respuesta = 1.0
+        if (supereficaces[otro.tipo]?.contains(this.tipo) == true) respuesta = 2.0 else{
+            if (listanomuy[otro.tipo]?.contains(this.tipo) == true) respuesta = 0.5 else respuesta = 1.0
         }
         return respuesta
     }
