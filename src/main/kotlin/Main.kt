@@ -34,16 +34,25 @@ fun main(args:Array<String>) {
         entrenador2.pokemon.recibir_ataque(mapamovimientos[entrenador1.pokemon]!!)
         Thread.sleep(500)
 
-        println("${entrenador2.pokemon.toString()}")
-        Thread.sleep(1000)
+        if (entrenador2.pokemon.vida <=0) {
+            println("el pokemon del entrenador 2 pierde !!!!!")
+            break
+        } else println("${entrenador2.pokemon.toString()}\n")
+        Thread.sleep(2000)
 
         println("turno del jugador 2!")
         Thread.sleep(1000)
 
         println("${entrenador2.pokemon.nombre} usó ${mapamovimientos[entrenador2.pokemon]!!.nombre}")
-        entrenador2.pokemon.recibir_ataque(mapamovimientos[entrenador2.pokemon]!!)
+        entrenador1.pokemon.recibir_ataque(mapamovimientos[entrenador2.pokemon]!!)
         Thread.sleep(500)
 
-        println("${entrenador1.pokemon.toString()}")
+        if (entrenador1.pokemon.vida <=0) {
+            println("el pokemon del entrenador 1 pierde !!!!!")
+            break
+        } else println("${entrenador1.pokemon.toString()}\n")
+        Thread.sleep(2000)
+
+
     }
 }
