@@ -16,4 +16,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
         this.vida = vida
     }
 
+    fun recibir_ataque(ataque: Ataque) {
+        vida -= ataque.danio*tipo.efectividad(ataque.tipo).toInt()
+    }
 }
