@@ -1,5 +1,11 @@
 package clases
-
+/**
+ * ### Clase [Tipo]
+ *
+ * @constructor (cadena: [String])
+ *
+ * @param cadena [String] : Cadena que identifica el tipo del Pokemon será usado por tanto en la clase [Pokemon]
+ */
 class Tipo(cadena:String) {
     var tipo = cadena
         set(value) {
@@ -11,6 +17,9 @@ class Tipo(cadena:String) {
             }
         }
 
+    /**
+     * ### En este companion objet lo que tenemos es la tabla de tipos Pokemon
+     */
     companion object{
         val supereficaces = mapOf("acero" to arrayOf("hada", "hielo", "roca"),
             "agua" to arrayOf("fuego", "roca", "tierra"),
@@ -51,6 +60,12 @@ class Tipo(cadena:String) {
             "volador" to arrayOf("acero", "electrico", "roca")
         )
     }
+
+    /**
+     * ### Funcion [efectividad] : Comprueba la efectividad que haven los pokemon al atacar
+     *
+     * @return: Devuelve un valor Double que puede ser 1.0 2.0 o 0.5 y se multiplica por el daño al atacar
+     */
     fun efectividad(otro:Tipo):Double{
         var respuesta = 0.0
         if (supereficaces[otro.tipo]?.contains(this.tipo) == true) respuesta = 2.0 else{
