@@ -52,11 +52,11 @@ class Tipo(cadena:String) {
         )
     }
     fun efectividad(otro:Tipo):Double{
-        var respuesta = 0.0
-        if (supereficaces[otro.tipo]?.contains(this.tipo) == true) respuesta = 2.0 else{
-            if (listanomuy[otro.tipo]?.contains(this.tipo) == true) respuesta = 0.5 else respuesta = 1.0
+        var multiplicador = 0.0
+        if (supereficaces[otro.tipo]?.contains(this.tipo) == true) multiplicador = 2.0 else{
+            if (listanomuy[otro.tipo]?.contains(this.tipo) == true) multiplicador = 0.5 else multiplicador = 1.0
         }
-        return respuesta
+        return multiplicador
     }
 
 }

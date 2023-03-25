@@ -4,12 +4,12 @@ class Ataque(nombre: String, tipo:Tipo, danio:Int) {
 
     var nombre : String
     var tipo : Tipo
-    var danio : Int
+    var potencia : Int
 
     init {
         this.nombre = nombre
         this.tipo = tipo
-        this.danio = danio
+        this.potencia = danio
     }
 
 }
