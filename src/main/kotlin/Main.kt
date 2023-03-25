@@ -17,7 +17,7 @@ fun main(args:Array<String>) {
 
     //Elección de Pokemon por los jugadores
     println("Qué pokemon quieres que tenga entrenador 1?")
-    println("1. Picachu\n2. Charmander\n3. Squirtle")
+    println("1. Pikachu\n2. Charmander\n3. Squirtle")
     print("Pokemon: ")
     var opcion = readln().toInt()
     var entrenador1 = Jugador(Squirtle)
@@ -29,7 +29,7 @@ fun main(args:Array<String>) {
 
     println("")
     println("Qué pokemon quieres que tenga entrenador 2?")
-    println("1. Picachu\n2. Charmander\n3. Squirtle")
+    println("1. Pikachu\n2. Charmander\n3. Squirtle")
     print("Pokemon: ")
 
     opcion = readln().toInt()
@@ -72,7 +72,6 @@ fun main(args:Array<String>) {
             break
         } else println("${entrenador1.pokemon.toString()}\n")
         Thread.sleep(2000)
-
 
     }
 }
