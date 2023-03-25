@@ -9,13 +9,15 @@ fun main(args:Array<String>) {
     var Charmander = Pokemon("Charmander", "Si lo tocas puedes quemarte", Tipo("fuego"), 110)
     var Squirtle = Pokemon("Squirtle", "Tiene mas agia que el mar", Tipo("agua"), 120)
 
+    //Creación de los Ataques
     val pistolaAgua = Ataque("Pistola agua", Tipo("agua"), 10)
     val ascuas = Ataque("Ascuas", Tipo("fuego"), 10)
     val impactrueno = Ataque("Impactrueno", Tipo("electrico"), 10)
     val placaje = Ataque("Placaje", Tipo("normal"), 7)
 
+    //Elección de Pokemon por los jugadores
     println("Qué pokemon quieres que tenga entrenador 1?")
-    var opcion1 = readln()
+    var opcion1 = readln().toInt()
     var entrenador1 = Jugador(if (opcion1 == "pikachu") Pikachu else if (opcion1 == "charmander") Charmander else Squirtle)
 
     println("Qué pokemon quieres que tenga entrenador 2?")
@@ -24,8 +26,11 @@ fun main(args:Array<String>) {
 
     val mapamovimientos = mutableMapOf(Pikachu to impactrueno, Charmander to ascuas, Squirtle to pistolaAgua)
 
+    //Comienza el combate
     println("Hora de pelear!")
 
+
+    //Simulación de combate
     while (true){
         println("turno del jugador 1!")
         Thread.sleep(1000)
