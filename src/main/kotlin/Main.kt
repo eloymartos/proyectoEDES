@@ -19,10 +19,11 @@ fun main(args:Array<String>) {
     println("Qué pokemon quieres que tenga entrenador 1?")
     println("1. Picachu\n2.Charmander\n3. Squirtle")
     var opcion1 = readln().toInt()
+    var entrenador1 = Jugador(Squirtle)
     when (opcion1){
-        1 -> {var entrenador1 = Jugador(Pikachu)}
-        2 -> {var entrenador1 = Jugador(Charmander)}
-        3 -> {var entrenador1 = Jugador(Squirtle)}
+        1 -> {entrenador1 = Jugador(Pikachu)}
+        2 -> {entrenador1 = Jugador(Charmander)}
+        3 -> {entrenador1 = Jugador(Squirtle)}
     }
 
     println("Qué pokemon quieres que tenga entrenador 2?")
