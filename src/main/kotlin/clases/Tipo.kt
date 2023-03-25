@@ -51,10 +51,10 @@ class Tipo(cadena:String) {
             "volador" to arrayOf("acero", "electrico", "roca")
         )
     }
-    fun efectividad(otro:Tipo):Double{
+    fun efectividad(ataque: Ataque):Double{
         var multiplicador = 0.0
-        if (supereficaces[otro.tipo]?.contains(this.tipo) == true) multiplicador = 2.0 else{
-            if (listanomuy[otro.tipo]?.contains(this.tipo) == true) multiplicador = 0.5 else multiplicador = 1.0
+        if (supereficaces[ataque.tipo.tipo]?.contains(this.tipo) == true) multiplicador = 2.0 else{
+            if (listanomuy[ataque.tipo.tipo]?.contains(this.tipo) == true) multiplicador = 0.5 else multiplicador = 1.0
         }
         return multiplicador
     }
