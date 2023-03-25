@@ -17,10 +17,16 @@ fun main(args:Array<String>) {
 
     //Elección de Pokemon por los jugadores
     println("Qué pokemon quieres que tenga entrenador 1?")
+    println("1. Picachu\n2.Charmander\n3. Squirtle")
     var opcion1 = readln().toInt()
-    var entrenador1 = Jugador(if (opcion1 == "pikachu") Pikachu else if (opcion1 == "charmander") Charmander else Squirtle)
+    when (opcion1){
+        1 -> {var entrenador1 = Jugador(Pikachu)}
+        2 -> {var entrenador1 = Jugador(Charmander)}
+        3 -> {var entrenador1 = Jugador(Squirtle)}
+    }
 
     println("Qué pokemon quieres que tenga entrenador 2?")
+    println("1. Picachu\n2.Charmander\n3. Squirtle")
     var opcion2 = readln()
     var entrenador2 = Jugador(if (opcion2 == "pikachu") Pikachu else if (opcion2 == "charmander") Charmander else Squirtle)
 
@@ -28,7 +34,6 @@ fun main(args:Array<String>) {
 
     //Comienza el combate
     println("Hora de pelear!")
-
 
     //Simulación de combate
     while (true){
