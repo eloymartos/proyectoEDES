@@ -5,9 +5,9 @@ import clases.Tipo
 
 fun main(args:Array<String>) {
     // Creación de los Pokemon
-    var Pikachu = Pokemon("Pikachu", "Es amarillo y flama, lo oconoce hasta mi abuela", Tipo("electrico"), 50, 125)
-    var Charmander = Pokemon("Charmander", "Si lo tocas puedes quemarte", Tipo("fuego"), 65, 110)
-    var Squirtle = Pokemon("Squirtle", "Tiene mas agia que el mar", Tipo("agua"), 52, 120)
+    var Pikachu = Pokemon("Pikachu", "Es amarillo y flama, lo oconoce hasta mi abuela", Tipo("electrico"), 125)
+    var Charmander = Pokemon("Charmander", "Si lo tocas puedes quemarte", Tipo("fuego"), 110)
+    var Squirtle = Pokemon("Squirtle", "Tiene mas agia que el mar", Tipo("agua"), 120)
 
     val pistolaAgua = Ataque("Pistola agua", Tipo("agua"), 10)
     val ascuas = Ataque("Ascuas", Tipo("fuego"), 10)

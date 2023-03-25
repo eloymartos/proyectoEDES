@@ -66,12 +66,12 @@ class Tipo(cadena:String) {
      *
      * @return: Devuelve un valor Double que puede ser 1.0 2.0 o 0.5 y se multiplica por el daño al atacar
      */
-    fun efectividad(otro:Tipo):Double{
-        var respuesta = 0.0
-        if (supereficaces[otro.tipo]?.contains(this.tipo) == true) respuesta = 2.0 else{
-            if (listanomuy[otro.tipo]?.contains(this.tipo) == true) respuesta = 0.5 else respuesta = 1.0
+    fun efectividad(ataque: Ataque):Double{
+        var multiplicador = 0.0
+        if (supereficaces[ataque.tipo.tipo]?.contains(this.tipo) == true) multiplicador = 2.0 else{
+            if (listanomuy[ataque.tipo.tipo]?.contains(this.tipo) == true) multiplicador = 0.5 else multiplicador = 1.0
         }
-        return respuesta
+        return multiplicador
     }
 
 }
