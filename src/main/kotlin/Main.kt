@@ -17,22 +17,31 @@ fun main(args:Array<String>) {
 
     //Elección de Pokemon por los jugadores
     println("Qué pokemon quieres que tenga entrenador 1?")
-    println("1. Picachu\n2.Charmander\n3. Squirtle")
-    var opcion1 = readln().toInt()
+    println("1. Picachu\n2. Charmander\n3. Squirtle")
+    print("Pokemon: ")
+    var opcion = readln().toInt()
     var entrenador1 = Jugador(Squirtle)
-    when (opcion1){
+    when (opcion){
         1 -> {entrenador1 = Jugador(Pikachu)}
         2 -> {entrenador1 = Jugador(Charmander)}
         3 -> {entrenador1 = Jugador(Squirtle)}
     }
 
+    println("")
     println("Qué pokemon quieres que tenga entrenador 2?")
-    println("1. Picachu\n2.Charmander\n3. Squirtle")
-    var opcion2 = readln()
-    var entrenador2 = Jugador(if (opcion2 == "pikachu") Pikachu else if (opcion2 == "charmander") Charmander else Squirtle)
+    println("1. Picachu\n2. Charmander\n3. Squirtle")
+    print("Pokemon: ")
 
+    opcion = readln().toInt()
+    var entrenador2 = Jugador(Squirtle)
+    when (opcion){
+        1 -> {entrenador2 = Jugador(Pikachu)}
+        2 -> {entrenador2 = Jugador(Charmander)}
+        3 -> {entrenador2 = Jugador(Squirtle)}
+    }
     val mapamovimientos = mutableMapOf(Pikachu to impactrueno, Charmander to ascuas, Squirtle to pistolaAgua)
 
+    println("")
     //Comienza el combate
     println("Hora de pelear!")
 
