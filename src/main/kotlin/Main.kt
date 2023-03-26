@@ -32,10 +32,14 @@ fun main() {
         Ataque("Corte", Tipo("normal"), 50),
         Ataque("Pedrada", Tipo("roca"), 75)
     )
+    for (i in listapokemons){
+        i.asignarAtaques(listamovimientos)
+    }
     //Elección de Pokemon por los jugadores
 
     val entrenador1 = Entrenador()
     seleccionarPokemon(listapokemons, entrenador1, 1)
+
 
 
     val entrenador2 = Entrenador()

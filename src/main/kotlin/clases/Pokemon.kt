@@ -50,7 +50,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
         var contador = 0
         for(i in listamovimientos){
             if(tipo.efectividad(i) == 1.0 || tipo == i.tipo){
-                ataques[contador] = i
+                ataques.add(i)
                 contador ++
                 if(contador == 4) break
             }
@@ -60,7 +60,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
     fun mostrarAtaques() :String{
         var cadena = ("Ataques de $nombre")
         for (i in ataques){
-            cadena += "\n${i.nombre} tipo = ${i.tipo} potencia = ${i.potencia}"
+            cadena += "\n${i.nombre} tipo = ${i.tipo.tipo} potencia = ${i.potencia}"
         }
         return cadena
     }
