@@ -2,7 +2,7 @@ package clases
 /**
  *### Clase [Pokemon]
  *
- * @constructor (nombre: [Strinf], lore: [String], tipo: [Tipe], vida: [Int])
+ * @constructor (nombre: [String], lore: [String], tipo: [Tipe], vida: [Int])
  *
  * @param nombre [String] : Nombre del ataque en formato Cadena
  * @param lore [String] : Un breve resumen de la historia del Pokemon
@@ -43,5 +43,20 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
 
     override fun toString(): String {
         return "a $nombre le quedan ${vida.toInt()} ps"
+    }
+
+    fun asignarAtaques(listamovimientos : Array<Ataque>){
+        var contador = 0
+        for(i in listamovimientos){
+            if(tipo.efectividad(i) == 1.0 || tipo == i.tipo){
+                ataques[contador] = i
+                contador ++
+                if(contador == 4) break
+            }
+        }
+    }
+
+    fun mostrarAtaques(){
+        println()
     }
 }

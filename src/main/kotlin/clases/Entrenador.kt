@@ -1,7 +1,16 @@
 package clases
 
 class Entrenador {
+
     private val equipo: Array<Pokemon?> = arrayOfNulls(6)
+
+    var pokemonEnCampo =0
+        set(value) {
+            if (value !in (1..6) || equipo[value] == null || value == pokemonEnCampo){
+                println("error, intente dde nuevo")
+                pokemonEnCampo = readln().toInt()
+            } else field = value-1
+        }
 
     fun agregarPokemon(pokemon: Pokemon) {
         for (i in equipo.indices) {

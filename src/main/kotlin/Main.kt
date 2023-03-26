@@ -1,4 +1,5 @@
 import clases.*
+import java.sql.Time
 
 fun main(args:Array<String>) {
     // Creación de los Pokemon
@@ -65,31 +66,36 @@ fun main(args:Array<String>) {
     //Elección de Pokemon por los jugadores
 
     var entrenador1 = Entrenador()
-    seleccionarPokemon(listapokemons, entrenador1)
+    seleccionarPokemon(listapokemons, entrenador1, 1)
 
 
     var entrenador2 = Entrenador()
-    seleccionarPokemon(listapokemons, entrenador2)
+    seleccionarPokemon(listapokemons, entrenador2, 2)
 
     println("")
     //Comienza el combate
     println("Hora de pelear!")
 
-    while (true) {
-        println("Turno Entrenador Paco, con que pokemoon quieres empezar:")
-        Thread.sleep(1000)
-        entrenador1.mostrarEquipo()
-        var pokemon_elegido = readln().toInt() - 1
+    println("Entrenador 1, con que pokemon quieres empezar:")
+    entrenador1.mostrarEquipo()
+    entrenador1.pokemonEnCampo = readln().toInt()
+    Thread.sleep(1000)
 
-        //println("${Entrenador_Paco[1]}")
+    println("Entrenador 2, con que pokemon quieres empezar:")
+    entrenador2.mostrarEquipo()
+    entrenador2.pokemonEnCampo = readln().toInt()
+    Thread.sleep(1000)
+
+    while (true) {
+
+        mostrarOpciones(entrenador1, 1, entrenador2)
+
 
     }
 
     /*
     //Simulación de combate
-    while (true){
-        println("turno del jugador 1!")
-        Thread.sleep(1000)
+    while (true)
 
         println("${entrenador1.pokemon.nombre} usó ${mapamovimientos[entrenador1.pokemon]!!.nombre}")
         entrenador2.pokemon.recibir_ataque(mapamovimientos[entrenador1.pokemon]!!)
@@ -117,8 +123,25 @@ fun main(args:Array<String>) {
     }*/
 }
 
-fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador){
-    println("Qué pokemon quieres que tenga entrenador?")
+fun mostrarOpciones(entrenador: Entrenador, numero: Int, rival:Entrenador){
+    println("turno del jugador $numero!")
+    Thread.sleep(1000)
+    println("Qué quieres hacer ?\ncambiar = 1\nmostrar ataques = 2\nrendirse = 3")
+    when(readln().toInt()){
+        1->{
+            entrenador.mostrarEquipo()
+            Thread.sleep(1000)
+
+            println("elige pokemon")
+            entrenador.pokemonEnCampo = readln().toInt()
+        }
+        2->{}
+        3->{}
+    }
+}
+
+fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
+    println("Qué pokemon quieres que tenga entrenador $numero?")
     println("1. Pikachu     7. Bulbasaur\n2. Charmander     8. Eevee\n3. Squirtle       9. Abra\n4. Geodude     10. Jigglypuff\n5. Pidgey       11. Gastly\n6. Ratata       12. Psyduck")
     var opcion = 0
     var contador = 1
