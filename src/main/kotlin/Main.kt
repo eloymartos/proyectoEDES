@@ -107,6 +107,43 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
 
 }
 
+fun turno_automatico(entrenador: Entrenador, numero: Int, rival:Entrenador){
+    println("turno del jugador $numero!")
+    Thread.sleep(1000)
+    println("Qué quieres hacer ?\ncambiar = 1\natacar = 2\nrendirse = 3")
+    var pierde = false
+    when((1..2).random()){
+        1->{
+            entrenador.mostrarEquipo()
+            Thread.sleep(1000)
+
+            println("elige pokemon")
+            entrenador.pokemonEnCampo = (1..6).random()
+            println("el entrenador $numero sacó a ${entrenador.sacarPokemon().nombre}")
+        }
+        2->{
+            println("__________________________________\n${ entrenador.sacarPokemon().mostrarAtaques() }\n__________________________________")
+            println("${rival.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().atacar())} \n")
+            Thread.sleep(1000)
+        }
+        3->{
+            pierde = true
+        }
+        else-> turno(entrenador, numero, rival)
+    }
+    if (rival.sacarPokemon().vida<=0){
+        rival.removerPokemon()
+        rival.mostrarEquipo()
+        if (pierde || rival.pierde()) {
+            println("El rival ha perdido")
+            exitProcess(1)
+        }
+        println("jugador rival, elige pokemon a sacar")
+        rival.pokemonEnCampo = (1..6).random()
+    }
+
+}
+
 fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
     println("Qué pokemon quieres que tenga entrenador $numero?")
     println("1. Pikachu     7. Bulbasaur\n2. Charmander     8. Eevee\n3. Squirtle       9. Abra\n4. Geodude     10. Jigglypuff\n5. Pidgey       11. Gastly\n6. Ratata       12. Psyduck\n0. Suficiente")
