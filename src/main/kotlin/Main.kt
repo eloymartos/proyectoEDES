@@ -1,4 +1,5 @@
 import clases.*
+import kotlin.system.exitProcess
 
 fun main() {
     // Creación de los Pokemon
@@ -88,7 +89,8 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
             Thread.sleep(1000)
         }
         3->{
-            throw Exception("el jugador $numero se ha rendido !")
+            println("El Jugador $numero se ha rendido")
+            exitProcess(1)
         }
         else-> turno(entrenador, numero, rival)
     }
