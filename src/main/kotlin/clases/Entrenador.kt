@@ -43,14 +43,8 @@ class Entrenador {
      *
      * @return Quita un pokemon al equipo, lo usaremos para los pokemons muertos
      */
-    fun removerPokemon(pokemon: Pokemon) {
-        for (i in equipo.indices) {
-            if (equipo[i] == pokemon) {
-                equipo[i] = null
-                return
-            }
-        }
-        println("El Pokémon no se encuentra en el equipo.")
+    fun removerPokemon() {
+        equipo[pokemonEnCampo] = null
     }
 
     /**
@@ -70,5 +64,12 @@ class Entrenador {
     }
     fun sacarPokemon():Pokemon{
         return equipo[pokemonEnCampo]!!
+    }
+
+    fun pierde():Boolean{
+        for (i in equipo){
+            if (i != null) return false
+        }
+        return true
     }
 }

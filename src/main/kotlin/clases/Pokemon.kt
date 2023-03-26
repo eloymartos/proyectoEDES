@@ -33,7 +33,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
      */
     fun recibir_ataque(ataque: Ataque):String {
         vida -= (ataque.potencia * tipo.efectividad(ataque))
-        return "a $nombre le quedan $vida ps"
+        return if (vida>0)"a $nombre le quedan $vida ps" else "$nombre ha muerto"
     }
 
     /**
@@ -45,6 +45,8 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
     override fun toString(): String {
         return "a $nombre le quedan ${vida.toInt()} ps"
     }
+
+
 
     fun asignarAtaques(listamovimientos : Array<Ataque>){
         var contador = 0

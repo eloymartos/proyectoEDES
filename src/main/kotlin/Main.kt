@@ -74,6 +74,7 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
     println("turno del jugador $numero!")
     Thread.sleep(1000)
     println("Qué quieres hacer ?\ncambiar = 1\natacar = 2\nrendirse = 3")
+    var pierde = false
     when(readln().toInt()){
         1->{
             entrenador.mostrarEquipo()
@@ -85,20 +86,30 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
         }
         2->{
             println("__________________________________\n${ entrenador.sacarPokemon().mostrarAtaques() }\n__________________________________")
-            println(rival.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().atacar()))
+            println("${rival.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().atacar())} \n")
             Thread.sleep(1000)
         }
         3->{
-            println("El Jugador $numero se ha rendido")
-            exitProcess(1)
+            pierde = true
         }
         else-> turno(entrenador, numero, rival)
     }
+    if (rival.sacarPokemon().vida<=0){
+        rival.removerPokemon()
+        rival.mostrarEquipo()
+        if (pierde || rival.pierde()) {
+            println("El rival ha perdido")
+            exitProcess(1)
+        }
+        println("jugador rival, elige pokemon a sacar")
+        rival.pokemonEnCampo = readln().toInt()
+    }
+
 }
 
 fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
     println("Qué pokemon quieres que tenga entrenador $numero?")
-    println("1. Pikachu     7. Bulbasaur\n2. Charmander     8. Eevee\n3. Squirtle       9. Abra\n4. Geodude     10. Jigglypuff\n5. Pidgey       11. Gastly\n6. Ratata       12. Psyduck")
+    println("1. Pikachu     7. Bulbasaur\n2. Charmander     8. Eevee\n3. Squirtle       9. Abra\n4. Geodude     10. Jigglypuff\n5. Pidgey       11. Gastly\n6. Ratata       12. Psyduck\n0. Suficiente")
     var opcion :Int
     var contador = 1
     for (i in 0..5){
@@ -117,6 +128,19 @@ fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : 
             10 -> {entrenador.agregarPokemon(lista[9])}
             11 -> {entrenador.agregarPokemon(lista[10])}
             12 -> {entrenador.agregarPokemon(lista[11])}
+            0-> {
+                if (entrenador.pierde()) {
+                    println("error, equipo vacio")
+                    seleccionarPokemon(lista, entrenador, numero)
+                }
+                break
+            }
+            else ->{
+                if (entrenador.pierde()) {
+                    println("error")
+                    seleccionarPokemon(lista, entrenador, numero)
+                }
+            }
         }
         contador += 1
     }
