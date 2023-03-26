@@ -42,4 +42,7 @@ class Entrenador {
             }
         }
     }
+    fun sacarPokemon():Pokemon{
+        return equipo[pokemonEnCampo]!!
+    }
 }

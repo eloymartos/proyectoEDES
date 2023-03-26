@@ -2,7 +2,7 @@ package clases
 /**
  *### Clase [Pokemon]
  *
- * @constructor (nombre: [String], lore: [String], tipo: [Tipe], vida: [Int])
+ * @constructor (nombre: [String], lore: [String], tipo: [Tipo], vida: [Int])
  *
  * @param nombre [String] : Nombre del ataque en formato Cadena
  * @param lore [String] : Un breve resumen de la historia del Pokemon
@@ -16,7 +16,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
     var lore : String
     var tipo : Tipo
     var vida : Double
-    var ataques = Array<Ataque?>(4) { null }
+    var ataques = mutableListOf<Ataque>()
 
     init {
         this.nombre = nombre
@@ -57,6 +57,17 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
     }
 
     fun mostrarAtaques(){
-        println()
+        var cadena = ("Ataques de $nombre")
+        for (i in ataques){
+            cadena += "\n${i.nombre} tipo = ${i.tipo} potencia = ${i.potencia}"
+        }
+    }
+
+    fun atacar():Ataque{
+        val nombre = readln()
+        for (i in ataques){
+            if (nombre == i.nombre) return i
+        }
+        return atacar()
     }
 }
