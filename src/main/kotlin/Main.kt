@@ -4,12 +4,12 @@ import kotlin.system.exitProcess
 fun main() {
     // Creación de los Pokemon
     val listapokemons = arrayOf(
-        Pokemon("Pikachu", "Es amarillo y flama, lo oconoce hasta mi abuela", Tipo("electrico"), 75),
+        Pokemon("Pikachu", "Es amarillo y flama, lo conoce hasta mi abuela", Tipo("electrico"), 75),
         Pokemon("Charmander", "Si lo tocas puedes quemarte", Tipo("fuego"), 90),
-        Pokemon("Squirtle", "Tiene mas agia que el mar", Tipo("agua"), 70),
+        Pokemon("Squirtle", "Tiene mas agua que el mar", Tipo("agua"), 70),
         Pokemon("Geodude", "Una piedra no tienes mas", Tipo("roca"), 85),
         Pokemon("Pidgey", "Tiene alas y vuela", Tipo("volador"), 85),
-        Pokemon("Ratata", "Una puta eata, Asqueroso", Tipo("normal"), 50),
+        Pokemon("Ratata", "Una puta rata, Asqueroso", Tipo("normal"), 50),
         Pokemon("Bulbasaur", "A este no lo queria nadie", Tipo("planta"), 49),
         Pokemon("Eevee", "Pequeño animal de aspecto adorable y evolución incierta.", Tipo("Normal"), 55),
         Pokemon("Abra", "Pequeña criatura psíquica capaz de teletransportarse.", Tipo("psiquico"), 70),
@@ -94,10 +94,14 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
         }
         else-> turno(entrenador, numero, rival)
     }
+    if (entrenador.pierde()) {
+        println("Te has rendido")
+        exitProcess(1)
+    }
     if (rival.sacarPokemon().vida<=0){
         rival.removerPokemon()
         rival.mostrarEquipo()
-        if (pierde || rival.pierde()) {
+        if (rival.pierde()) {
             println("El rival ha perdido")
             exitProcess(1)
         }
