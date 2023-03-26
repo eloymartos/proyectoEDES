@@ -75,6 +75,11 @@ fun main() {
     }
 }
 
+/**
+ * ### Funcion [turno]
+ *
+ * @return Funcion que simula cada turno con 3 opciones, cambiar el pokemon en el campo, atcar o rendirse, tambien hace la comprobacion de si han muerto tods los pokemon del jugador
+ */
 fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
     println("turno del jugador $numero!")
     Thread.sleep(1000)
@@ -149,6 +154,11 @@ fun turno_automatico(entrenador: Entrenador, numero: Int, rival:Entrenador){
 
 }
 
+/**
+ * ### Funcion [seleccionarPokemon]
+ *
+ * @return Muestra un menu con los pokemon disonibles y pide al jugador que seleccione 6 o menos ya que si pones 0 en algun momento se completa el equipo con los pokemons que hayas seleccionado, por ultimo muestra el equipo creado
+ */
 fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
     println("Qué pokemon quieres que tenga entrenador $numero?")
     println("1. Pikachu     7. Bulbasaur\n2. Charmander     8. Eevee\n3. Squirtle       9. Abra\n4. Geodude     10. Jigglypuff\n5. Pidgey       11. Gastly\n6. Ratata       12. Psyduck\n0. Suficiente")

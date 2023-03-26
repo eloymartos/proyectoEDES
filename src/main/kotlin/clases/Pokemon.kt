@@ -47,7 +47,11 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
     }
 
 
-
+    /**
+     * ### Funcion [asignarAtaques]
+     *
+     * @return Asigna los 4 ataques a cada pokemon
+     */
     fun asignarAtaques(listamovimientos : Array<Ataque>){
         var contador = 0
         for(i in listamovimientos){
@@ -59,6 +63,11 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
         }
     }
 
+    /**
+     * ### Funcion [mostrarAtaques]
+     *
+     * @return Imprime por pantalla los 4 ataques del pokemon
+     */
     fun mostrarAtaques() :String{
         var cadena = ("Ataques de $nombre")
         for (i in ataques){
@@ -67,6 +76,11 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
         return cadena
     }
 
+    /**
+     * Funcion [atacar]
+     *
+     * @return Funcion que se usa para lanzar un ataque
+     */
     fun atacar():Ataque{
         val nombre = readln()
         for (i in ataques){

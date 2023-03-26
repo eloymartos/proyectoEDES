@@ -66,6 +66,11 @@ class Entrenador {
         return equipo[pokemonEnCampo]!!
     }
 
+    /**
+     * ### Funcion [pierde]
+     *
+     * @return Funcion que comprueba si el entrenador ha perdido para parar el combate
+     */
     fun pierde():Boolean{
         for (i in equipo){
             if (i != null) return false
