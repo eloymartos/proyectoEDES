@@ -56,7 +56,7 @@ fun main() {
 
     println("Entrenador 2, con que pokemon quieres empezar:")
     entrenador2.mostrarEquipo()
-    entrenador2.pokemonEnCampo = readln().toInt()-1
+    entrenador2.pokemonEnCampo = readln().toInt()
     Thread.sleep(1000)
 
     while (true) {
@@ -80,10 +80,11 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
 
             println("elige pokemon")
             entrenador.pokemonEnCampo = readln().toInt()
+            println("el entrenador $numero sacó a ${entrenador.sacarPokemon().nombre}")
         }
         2->{
-            println(entrenador.sacarPokemon().mostrarAtaques())
-            println(entrenador.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().atacar()))
+            println("__________________________________\n${ entrenador.sacarPokemon().mostrarAtaques() }\n__________________________________")
+            println(rival.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().atacar()))
             Thread.sleep(1000)
         }
         3->{

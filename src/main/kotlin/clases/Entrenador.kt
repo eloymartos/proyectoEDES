@@ -11,10 +11,10 @@ class Entrenador {
 
     private val equipo: Array<Pokemon?> = arrayOfNulls(6)
 
-    var pokemonEnCampo =0
+    var pokemonEnCampo =7
         set(value) {
-            if (value !in (1..7) || equipo[value] == null || value == pokemonEnCampo){
-                println("error, intente dde nuevo")
+            if (value !in arrayOf(1,2,3,4,5,6) || equipo[value-1] == null || value == pokemonEnCampo+1){
+                println("error, intente de nuevo")
                 pokemonEnCampo = readln().toInt()
             } else field = value-1
         }
