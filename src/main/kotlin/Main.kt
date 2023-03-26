@@ -2,36 +2,6 @@ import clases.*
 
 fun main() {
     // Creación de los Pokemon
-    /*
-    var Pikachu = Pokemon("Pikachu", "Es amarillo y flama, lo oconoce hasta mi abuela", Tipo("electrico"), 75)
-    var Charmander = Pokemon("Charmander", "Si lo tocas puedes quemarte", Tipo("fuego"), 90)
-    var Squirtle = Pokemon("Squirtle", "Tiene mas agia que el mar", Tipo("agua"), 70)
-    var Geodude = Pokemon("Geodude", "Una piedra no tienes mas", Tipo("roca"), 85)
-    var Pidgey = Pokemon("Pidgey", "Tiene alas y vuela", Tipo("volador"), 85)
-    var Ratata = Pokemon("Ratata", "Una puta eata, Asqueroso", Tipo("normal"), 50)
-    var Bulbasaur = Pokemon("Bulbasaur", "A este no lo queria nadie", Tipo("planta"), 49)
-    var Eevee = Pokemon("Eevee", "Pequeño animal de aspecto adorable y evolución incierta.", Tipo("Normal"), 55)
-    var Abra = Pokemon("Abra", "Pequeña criatura psíquica capaz de teletransportarse.", Tipo("psiquico"), 70)
-    var Jigglypuff = Pokemon("Jigglypuff", "Criatura rosa con una canción hipnótica.", Tipo("normal"), 115)
-    val Gastly = Pokemon("Gastly", "Criatura de humo venenoso que asusta a sus presas.", Tipo("fantasma"), 65)
-    val Psyduck = Pokemon("Psyduck", "Pato amarillo confundido y de gran poder psíquico.", Tipo("agua"), 55)
-
-    //Creación de los Ataques
-    val pistolaAgua = Ataque("Pistola agua", Tipo("agua"), 10)
-    val ascuas = Ataque("Ascuas", Tipo("fuego"), 10)
-    val impactrueno = Ataque("Impactrueno", Tipo("electrico"), 10)
-    val placaje = Ataque("Placaje", Tipo("normal"), 7)
-    var llamarada = Ataque("Llamarada", Tipo("fuego"), 90)
-    var hidroBomba = Ataque("Hidro Bomba", Tipo("agua"), 110)
-    var rayoSolar = Ataque("Rayo Solar", Tipo("planta"), 120)
-    var trueno = Ataque("Trueno", Tipo("electrico"), 110)
-    var terremoto = Ataque("Terremoto", Tipo("tierra"), 100)
-    var vuelo = Ataque("Vuelo", Tipo("volador"), 90)
-    var puñoDinamico = Ataque("Puño Dinámico", Tipo("lucha"), 70)
-    var rayoPsiquico = Ataque("Rayo Psíquico", Tipo("psiquico"), 90)
-    var corte = Ataque("Corte", Tipo("normal"), 50)
-    var pedrada = Ataque("Pedrada", Tipo("roca"), 75)
-    */
     val listapokemons = arrayOf(
         Pokemon("Pikachu", "Es amarillo y flama, lo oconoce hasta mi abuela", Tipo("electrico"), 75),
         Pokemon("Charmander", "Si lo tocas puedes quemarte", Tipo("fuego"), 90),
@@ -82,47 +52,20 @@ fun main() {
 
     println("Entrenador 2, con que pokemon quieres empezar:")
     entrenador2.mostrarEquipo()
-    entrenador2.pokemonEnCampo = readln().toInt()
+    entrenador2.pokemonEnCampo = readln().toInt()-1
     Thread.sleep(1000)
 
     while (true) {
 
-        mostrarOpciones(entrenador1, 1, entrenador2)
+        turno(entrenador1, 1, entrenador2)
+
+        turno(entrenador2, 2, entrenador1)
 
 
     }
-
-    /*
-    //Simulación de combate
-    while (true)
-
-        println("${entrenador1.pokemon.nombre} usó ${mapamovimientos[entrenador1.pokemon]!!.nombre}")
-        entrenador2.pokemon.recibir_ataque(mapamovimientos[entrenador1.pokemon]!!)
-        Thread.sleep(500)
-
-        if (entrenador2.pokemon.vida <=0) {
-            println("el pokemon del entrenador 2 pierde !!!!!")
-            break
-        } else println("${entrenador2.pokemon.toString()}\n")
-        Thread.sleep(2000)
-
-        println("turno del jugador 2!")
-        Thread.sleep(1000)
-
-        println("${entrenador2.pokemon.nombre} usó ${mapamovimientos[entrenador2.pokemon]!!.nombre}")
-        entrenador1.pokemon.recibir_ataque(mapamovimientos[entrenador2.pokemon]!!)
-        Thread.sleep(500)
-
-        if (entrenador1.pokemon.vida <=0) {
-            println("el pokemon del entrenador 1 pierde !!!!!")
-            break
-        } else println("${entrenador1.pokemon.toString()}\n")
-        Thread.sleep(2000)
-
-    }*/
 }
 
-fun mostrarOpciones(entrenador: Entrenador, numero: Int, rival:Entrenador){
+fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
     println("turno del jugador $numero!")
     Thread.sleep(1000)
     println("Qué quieres hacer ?\ncambiar = 1\natacar = 2\nrendirse = 3")
@@ -135,13 +78,14 @@ fun mostrarOpciones(entrenador: Entrenador, numero: Int, rival:Entrenador){
             entrenador.pokemonEnCampo = readln().toInt()
         }
         2->{
-            entrenador.sacarPokemon().mostrarAtaques()
-            rival.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().atacar())
+            println(entrenador.sacarPokemon().mostrarAtaques())
+            println(entrenador.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().atacar()))
             Thread.sleep(1000)
         }
         3->{
-
+            throw Exception("el jugador $numero se ha rendido !")
         }
+        else-> turno(entrenador, numero, rival)
     }
 }
 

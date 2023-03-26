@@ -31,8 +31,9 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
      * @param ataque: [Ataque] : Recibe un Ataque que hace un pokemon y de el sacamos la potencia base y el tipo para analizar la efectiidad del mismo
      * @return Actualiza la vida del pokemon que tecibe el ataque
      */
-    fun recibir_ataque(ataque: Ataque) {
+    fun recibir_ataque(ataque: Ataque):String {
         vida -= (ataque.potencia * tipo.efectividad(ataque))
+        return "a $nombre le quedan $vida ps"
     }
 
     /**
@@ -56,11 +57,12 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
         }
     }
 
-    fun mostrarAtaques(){
+    fun mostrarAtaques() :String{
         var cadena = ("Ataques de $nombre")
         for (i in ataques){
             cadena += "\n${i.nombre} tipo = ${i.tipo} potencia = ${i.potencia}"
         }
+        return cadena
     }
 
     fun atacar():Ataque{
@@ -68,6 +70,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
         for (i in ataques){
             if (nombre == i.nombre) return i
         }
+        println("no se encuentra el ataque")
         return atacar()
     }
 }

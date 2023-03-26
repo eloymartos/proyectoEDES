@@ -13,7 +13,7 @@ class Entrenador {
 
     var pokemonEnCampo =0
         set(value) {
-            if (value !in (1..6) || equipo[value] == null || value == pokemonEnCampo){
+            if (value !in (1..7) || equipo[value] == null || value == pokemonEnCampo){
                 println("error, intente dde nuevo")
                 pokemonEnCampo = readln().toInt()
             } else field = value-1
