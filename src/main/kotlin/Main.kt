@@ -1,6 +1,11 @@
 import clases.*
 import kotlin.system.exitProcess
 
+/**
+ * ### Main
+ *
+ * Crea a todsos los pokemon y los ataques y hace que empiece el juego
+ */
 fun main() {
     // Creación de los Pokemon
     val listapokemons = arrayOf(
