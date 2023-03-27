@@ -45,7 +45,38 @@ fun main() {
 
     println("quieres jugar 1vs1 o 1vsIA ? ")
     when(readln()){
-        "1vs1"->
+        "1vs1"->{
+            val entrenador1 = Entrenador()
+            seleccionarPokemon(listapokemons, entrenador1, 1)
+
+
+
+            val entrenador2 = Entrenador()
+            seleccionarPokemon(listapokemons, entrenador2, 2)
+
+            println("")
+            //Comienza el combate
+            println("Hora de pelear!")
+
+            println("Entrenador 1, con que pokemon quieres empezar:")
+            entrenador1.mostrarEquipo()
+            entrenador1.pokemonEnCampo = readln().toInt()
+            Thread.sleep(1000)
+
+            println("Entrenador 2, con que pokemon quieres empezar:")
+            entrenador2.mostrarEquipo()
+            entrenador2.pokemonEnCampo = readln().toInt()
+            Thread.sleep(1000)
+
+            while (true) {
+
+                turno(entrenador1, 1, entrenador2)
+
+                turno(entrenador2, 2, entrenador1)
+
+
+            }
+        }
         "IA"->{
             val entrenador1 = Entrenador()
             seleccionarPokemon(listapokemons, entrenador1, 1)
