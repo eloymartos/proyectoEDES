@@ -55,10 +55,11 @@ class Pokemon(nombre:String, lore:String, tipo:String, vida:Int):Tipo("") {
         var contador = 0
         while (true){
             var nuevo = listamovimientos.random()
-            if((efectividad(nuevo) == 1.0 || tipo == nuevo.tipo) && nuevo !in listamovimientos){
-                ataques.add(nuevo)
-                contador ++
-                if(contador == 4) break
+            if(efectividad(nuevo) == 1.0 || tipo == nuevo.tipo){
+                if ( nuevo !in listamovimientos){
+                    ataques.add(nuevo)}
+                    contador++
+                    if (contador == 4) break
             }
         }
     }
