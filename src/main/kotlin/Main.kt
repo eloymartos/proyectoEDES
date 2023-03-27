@@ -23,20 +23,21 @@ fun main() {
         Pokemon("Psyduck", "Pato amarillo confundido y de gran poder psíquico.", "agua", 55)
     )
     val listamovimientos = arrayOf(
-        Ataque("Pistola agua", "agua", 10),
-        Ataque("Ascuas", "fuego", 10),
-        Ataque("Impactrueno", "electrico", 10),
-        Ataque("Placaje", "normal", 7),
-        Ataque("Llamarada", "fuego", 90),
-        Ataque("Hidro Bomba", "agua", 110),
-        Ataque("Rayo Solar", "planta", 120),
-        Ataque("Trueno", "electrico", 110),
+        Ataque("Lanzallamas", "fuego", 90),
+        Ataque("Hidrobomba", "agua", 110),
+        Ataque("Giga Impacto", "normal", 150),
+        Ataque("Avalancha", "roca", 75),
+        Ataque("Rayo Hielo", "hielo", 90),
+        Ataque("Foco Resplandor", "electrico", 80),
+        Ataque("Hierba Lazo", "planta", 60),
+        Ataque("Ciclón", "volador", 100),
+        Ataque("Garra Umbría", "siniestro", 70),
+        Ataque("Psicocorte", "psiquico", 70),
+        Ataque("Cascada", "agua", 80),
         Ataque("Terremoto", "tierra", 100),
-        Ataque("Vuelo", "volador", 90),
-        Ataque("Puño Dinámico", "lucha", 70),
-        Ataque("Rayo Psíquico", "psiquico", 90),
-        Ataque("Corte", "normal", 50),
-        Ataque("Pedrada", "roca", 75)
+        Ataque("Cola Dragón", "dragon", 60),
+        Ataque("Rayo Solar", "planta", 120),
+        Ataque("Bola Sombra", "siniestro", 80)
     )
     for (i in listapokemons){
         i.asignarAtaques(listamovimientos)
