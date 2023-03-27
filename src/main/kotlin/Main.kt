@@ -51,68 +51,10 @@ fun main() {
     }
     when(lectura){
         "1vs1"->{
-            val entrenador1 = Entrenador()
-            seleccionarPokemon(listapokemons, entrenador1, 1)
-
-
-
-            val entrenador2 = Entrenador()
-            seleccionarPokemon(listapokemons, entrenador2, 2)
-
-            println("")
-            //Comienza el combate
-            println("Hora de pelear!")
-
-            println("Entrenador 1, con que pokemon quieres empezar:")
-            entrenador1.mostrarEquipo()
-            entrenador1.pokemonEnCampo = readln().toInt()
-            Thread.sleep(1000)
-
-            println("Entrenador 2, con que pokemon quieres empezar:")
-            entrenador2.mostrarEquipo()
-            entrenador2.pokemonEnCampo = readln().toInt()
-            Thread.sleep(1000)
-
-            while (true) {
-
-                turno(entrenador1, 1, entrenador2)
-
-                turno(entrenador2, 2, entrenador1)
-
-
-            }
+            combate1VS1(listapokemons)
         }
         "IA"->{
-            val entrenador1 = Entrenador()
-            seleccionarPokemon(listapokemons, entrenador1, 1)
-
-            val entrenador2 = Entrenador()
-            seleccionarPokemonAutomatico(listapokemons, entrenador2, 2)
-
-            println("")
-            //Comienza el combate
-            println("Hora de pelear!")
-
-            println("Entrenador 1, con que pokemon quieres empezar:")
-            entrenador1.mostrarEquipo()
-            entrenador1.pokemonEnCampo = readln().toInt()
-            Thread.sleep(1000)
-
-            println("Entrenador 2, con que pokemon quieres empezar:")
-            entrenador2.mostrarEquipo()
-            entrenador2.pokemonEnCampo = (1..6).random()
-
-            println("El entrenador 2 sacará a : ${entrenador2.sacarPokemon().nombre}")
-            Thread.sleep(1000)
-
-            while (true) {
-
-                turno(entrenador1, 1, entrenador2)
-
-                turno_automatico(entrenador2, 2, entrenador1)
-
-            }
-
+            combatevsIA(listapokemons)
         }
     }
 
@@ -277,5 +219,73 @@ fun seleccionarPokemonAutomatico(lista : Array<Pokemon>, entrenador: Entrenador,
         }
     }
     entrenador.mostrarEquipo()
+
+}
+
+fun combate1VS1(listapokemons:Array<Pokemon>){
+        val entrenador1 = Entrenador()
+        seleccionarPokemon(listapokemons, entrenador1, 1)
+
+
+
+        val entrenador2 = Entrenador()
+        seleccionarPokemon(listapokemons, entrenador2, 2)
+
+        println("")
+        //Comienza el combate
+        println("Hora de pelear!")
+
+        println("Entrenador 1, con que pokemon quieres empezar:")
+        entrenador1.mostrarEquipo()
+        entrenador1.pokemonEnCampo = readln().toInt()
+        Thread.sleep(1000)
+
+        println("Entrenador 2, con que pokemon quieres empezar:")
+        entrenador2.mostrarEquipo()
+        entrenador2.pokemonEnCampo = readln().toInt()
+        Thread.sleep(1000)
+
+        while (true) {
+
+            turno(entrenador1, 1, entrenador2)
+
+            turno(entrenador2, 2, entrenador1)
+
+
+        }
+}
+
+fun combatevsIA(listapokemons: Array<Pokemon>){
+
+    val entrenador1 = Entrenador()
+    seleccionarPokemon(listapokemons, entrenador1, 1)
+
+    val entrenador2 = Entrenador()
+    seleccionarPokemonAutomatico(listapokemons, entrenador2, 2)
+
+    println("")
+    //Comienza el combate
+    println("Hora de pelear!")
+
+    println("Entrenador 1, con que pokemon quieres empezar:")
+    entrenador1.mostrarEquipo()
+    entrenador1.pokemonEnCampo = readln().toInt()
+    Thread.sleep(1000)
+
+    println("Entrenador 2, con que pokemon quieres empezar:")
+    entrenador2.mostrarEquipo()
+    entrenador2.pokemonEnCampo = (1..6).random()
+
+    println("El entrenador 2 sacará a : ${entrenador2.sacarPokemon().nombre}")
+    Thread.sleep(1000)
+
+    while (true) {
+
+        turno(entrenador1, 1, entrenador2)
+
+        turno_automatico(entrenador2, 2, entrenador1)
+
+    }
+
 
 }
