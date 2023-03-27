@@ -13,9 +13,9 @@ package clases
 class Pokemon(nombre:String, lore:String, tipo:String, vida:Int):Tipo("") {
 
     var nombre : String
-    var lore : String
+    private var lore : String
     var vida : Double
-    var ataques = mutableListOf<Ataque>()
+    private var ataques = mutableListOf<Ataque>()
 
     init {
         this.nombre = nombre
@@ -45,15 +45,11 @@ class Pokemon(nombre:String, lore:String, tipo:String, vida:Int):Tipo("") {
         var contador = 0
         while (true){
             var nuevo = listamovimientos.random()
-            if(efectividad(nuevo) == 1.0 || tipo == nuevo.tipo){
-                if ( nuevo !in listamovimientos){
-                    ataques.add(nuevo)
-                }
+            ataques.add(nuevo)
             contador++
-            if (contador == 4 && ataques.size>=0) break
+            if (contador == 4) break
             }
         }
-    }
 
     /**
      * ### Funcion [mostrarAtaques]

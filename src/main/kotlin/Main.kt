@@ -9,18 +9,18 @@ import kotlin.system.exitProcess
 fun main() {
     // Creación de los Pokemon
     val listapokemons = arrayOf(
-        Pokemon("Pikachu", "Es amarillo y flama, lo conoce hasta mi abuela", "electrico", 75),
-        Pokemon("Charmander", "Si lo tocas puedes quemarte", "fuego", 90),
-        Pokemon("Squirtle", "Tiene mas agua que el mar","agua", 70),
-        Pokemon("Geodude", "Una piedra no tienes mas", "roca", 85),
-        Pokemon("Pidgey", "Tiene alas y vuela", "volador", 85),
-        Pokemon("Ratata", "Una puta rata, Asqueroso", "normal", 50),
-        Pokemon("Bulbasaur", "A este no lo queria nadie", "planta", 49),
-        Pokemon("Eevee", "Pequeño animal de aspecto adorable y evolución incierta.", "normal", 55),
-        Pokemon("Abra", "Pequeña criatura psíquica capaz de teletransportarse.", "psiquico", 70),
-        Pokemon("Jigglypuff", "Criatura rosa con una canción hipnótica.", "normal", 115),
-        Pokemon("Gastly", "Criatura de humo venenoso que asusta a sus presas.", "fantasma", 65),
-        Pokemon("Psyduck", "Pato amarillo confundido y de gran poder psíquico.", "agua", 55)
+        Pokemon("Pikachu", "Es amarillo y flama, lo conoce hasta mi abuela", "electrico", 200),
+        Pokemon("Charmander", "Si lo tocas puedes quemarte", "fuego", 150),
+        Pokemon("Squirtle", "Tiene mas agua que el mar","agua", 150),
+        Pokemon("Geodude", "Una piedra no tienes mas", "roca", 170),
+        Pokemon("Pidgey", "Tiene alas y vuela", "volador", 190),
+        Pokemon("Ratata", "Una puta rata, Asqueroso", "normal", 100),
+        Pokemon("Bulbasaur", "A este no lo queria nadie", "planta", 249),
+        Pokemon("Eevee", "Pequeño animal de aspecto adorable y evolución incierta.", "normal", 150),
+        Pokemon("Abra", "Pequeña criatura psíquica capaz de teletransportarse.", "psiquico", 90),
+        Pokemon("Jigglypuff", "Criatura rosa con una canción hipnótica.", "normal", 200),
+        Pokemon("Gastly", "Criatura de humo venenoso que asusta a sus presas.", "fantasma", 130),
+        Pokemon("Psyduck", "Pato amarillo confundido y de gran poder psíquico.", "agua", 150)
     )
     val listamovimientos = arrayOf(
         Ataque("Lanzallamas", "fuego", 90),
