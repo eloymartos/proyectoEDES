@@ -106,7 +106,7 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
         }
         else-> turno(entrenador, numero, rival)
     }
-    if (entrenador.pierde()) {
+    if (pierde) {
         println("Te has rendido")
         exitProcess(1)
     }
