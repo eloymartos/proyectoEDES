@@ -10,11 +10,10 @@ package clases
  *                      proyecto la cual indica el tipo del pokemon en una cadena y comprueba que sea correcta.
  * @param vida [Int] : Es la vida o PS que tiene el pokemon, está se actualiza cada vez que un pokemon recibe un ataque.
  */
-class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
+class Pokemon(nombre:String, lore:String, tipo:String, vida:Int):Tipo("") {
 
     var nombre : String
     var lore : String
-    var tipo : Tipo
     var vida : Double
     var ataques = mutableListOf<Ataque>()
 
@@ -32,7 +31,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
      * @return Actualiza la vida del pokemon que tecibe el ataque
      */
     fun recibir_ataque(ataque: Ataque):String {
-        vida -= (ataque.potencia * tipo.efectividad(ataque))
+        vida -= (ataque.potencia * efectividad(ataque))
         return if (vida>0)"a $nombre le quedan $vida ps" else "$nombre ha muerto"
     }
 
@@ -56,7 +55,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
         var contador = 0
         while (true){
             var nuevo = listamovimientos.random()
-            if(tipo.efectividad(nuevo) == 1.0 || tipo == nuevo.tipo){
+            if((efectividad(nuevo) == 1.0 || tipo == nuevo.tipo) && nuevo !in listamovimientos){
                 ataques.add(nuevo)
                 contador ++
                 if(contador == 4) break
@@ -72,7 +71,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
     fun mostrarAtaques() :String{
         var cadena = ("Ataques de $nombre")
         for (i in ataques){
-            cadena += "\n${i.nombre} tipo = ${i.tipo.tipo} potencia = ${i.potencia}"
+            cadena += "\n${i.nombre} tipo = ${i.tipo} potencia = ${i.potencia}"
         }
         return cadena
     }

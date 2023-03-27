@@ -6,7 +6,7 @@ package clases
  *
  * @param cadena [String] : Cadena que identifica el tipo del Pokemon será usado por tanto en la clase [Pokemon]
  */
-class Tipo(cadena:String) {
+abstract class Tipo(cadena:String) {
     var tipo = cadena
         set(value) {
             if (value in arrayOf("acero", "agua", "bicho", "dragon", "electrico", "fantasma", "fuego",
@@ -67,9 +67,9 @@ class Tipo(cadena:String) {
      * @return: Devuelve un valor Double que puede ser 1.0 2.0 o 0.5 y se multiplica por el daño al atacar
      */
     fun efectividad(ataque: Ataque):Double{
-        var multiplicador = 0.0
-        if (supereficaces[ataque.tipo.tipo]?.contains(this.tipo) == true) multiplicador = 2.0 else{
-            if (listanomuy[ataque.tipo.tipo]?.contains(this.tipo) == true) multiplicador = 0.5 else multiplicador = 1.0
+        var multiplicador :Double
+        if (supereficaces[ataque.tipo]?.contains(this.tipo) == true) multiplicador = 2.0 else{
+            if (listanomuy[ataque.tipo]?.contains(this.tipo) == true) multiplicador = 0.5 else multiplicador = 1.0
         }
         return multiplicador
     }

@@ -9,34 +9,34 @@ import kotlin.system.exitProcess
 fun main() {
     // Creación de los Pokemon
     val listapokemons = arrayOf(
-        Pokemon("Pikachu", "Es amarillo y flama, lo conoce hasta mi abuela", Tipo("electrico"), 75),
-        Pokemon("Charmander", "Si lo tocas puedes quemarte", Tipo("fuego"), 90),
-        Pokemon("Squirtle", "Tiene mas agua que el mar", Tipo("agua"), 70),
-        Pokemon("Geodude", "Una piedra no tienes mas", Tipo("roca"), 85),
-        Pokemon("Pidgey", "Tiene alas y vuela", Tipo("volador"), 85),
-        Pokemon("Ratata", "Una puta rata, Asqueroso", Tipo("normal"), 50),
-        Pokemon("Bulbasaur", "A este no lo queria nadie", Tipo("planta"), 49),
-        Pokemon("Eevee", "Pequeño animal de aspecto adorable y evolución incierta.", Tipo("Normal"), 55),
-        Pokemon("Abra", "Pequeña criatura psíquica capaz de teletransportarse.", Tipo("psiquico"), 70),
-        Pokemon("Jigglypuff", "Criatura rosa con una canción hipnótica.", Tipo("normal"), 115),
-        Pokemon("Gastly", "Criatura de humo venenoso que asusta a sus presas.", Tipo("fantasma"), 65),
-        Pokemon("Psyduck", "Pato amarillo confundido y de gran poder psíquico.", Tipo("agua"), 55)
+        Pokemon("Pikachu", "Es amarillo y flama, lo conoce hasta mi abuela", "electrico", 75),
+        Pokemon("Charmander", "Si lo tocas puedes quemarte", "fuego", 90),
+        Pokemon("Squirtle", "Tiene mas agua que el mar","agua", 70),
+        Pokemon("Geodude", "Una piedra no tienes mas", "roca", 85),
+        Pokemon("Pidgey", "Tiene alas y vuela", "volador", 85),
+        Pokemon("Ratata", "Una puta rata, Asqueroso", "normal", 50),
+        Pokemon("Bulbasaur", "A este no lo queria nadie", "planta", 49),
+        Pokemon("Eevee", "Pequeño animal de aspecto adorable y evolución incierta.", "normal", 55),
+        Pokemon("Abra", "Pequeña criatura psíquica capaz de teletransportarse.", "psiquico", 70),
+        Pokemon("Jigglypuff", "Criatura rosa con una canción hipnótica.", "normal", 115),
+        Pokemon("Gastly", "Criatura de humo venenoso que asusta a sus presas.", "fantasma", 65),
+        Pokemon("Psyduck", "Pato amarillo confundido y de gran poder psíquico.", "agua", 55)
     )
     val listamovimientos = arrayOf(
-        Ataque("Pistola agua", Tipo("agua"), 10),
-        Ataque("Ascuas", Tipo("fuego"), 10),
-        Ataque("Impactrueno", Tipo("electrico"), 10),
-        Ataque("Placaje", Tipo("normal"), 7),
-        Ataque("Llamarada", Tipo("fuego"), 90),
-        Ataque("Hidro Bomba", Tipo("agua"), 110),
-        Ataque("Rayo Solar", Tipo("planta"), 120),
-        Ataque("Trueno", Tipo("electrico"), 110),
-        Ataque("Terremoto", Tipo("tierra"), 100),
-        Ataque("Vuelo", Tipo("volador"), 90),
-        Ataque("Puño Dinámico", Tipo("lucha"), 70),
-        Ataque("Rayo Psíquico", Tipo("psiquico"), 90),
-        Ataque("Corte", Tipo("normal"), 50),
-        Ataque("Pedrada", Tipo("roca"), 75)
+        Ataque("Pistola agua", "agua", 10),
+        Ataque("Ascuas", "fuego", 10),
+        Ataque("Impactrueno", "electrico", 10),
+        Ataque("Placaje", "normal", 7),
+        Ataque("Llamarada", "fuego", 90),
+        Ataque("Hidro Bomba", "agua", 110),
+        Ataque("Rayo Solar", "planta", 120),
+        Ataque("Trueno", "electrico", 110),
+        Ataque("Terremoto", "tierra", 100),
+        Ataque("Vuelo", "volador", 90),
+        Ataque("Puño Dinámico", "lucha", 70),
+        Ataque("Rayo Psíquico", "psiquico", 90),
+        Ataque("Corte", "normal", 50),
+        Ataque("Pedrada", "roca", 75)
     )
     for (i in listapokemons){
         i.asignarAtaques(listamovimientos)

@@ -9,10 +9,9 @@ package clases
  *                      proyecto la cual indica el tipo del pokemon en una cadena y comprueba que sea correcta.
  * @param danio [Int] : Es el daño que hace cada ataque independientemente de la efectividad y está en formato de número entero
  */
-class Ataque(nombre: String, tipo:Tipo, danio:Int) {
+class Ataque(nombre: String, tipo:String, danio:Int):Tipo("") {
 
     var nombre : String
-    var tipo : Tipo
     var potencia : Int
 
     init {
