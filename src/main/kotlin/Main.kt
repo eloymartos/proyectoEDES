@@ -49,7 +49,7 @@ fun main() {
 
 
     val entrenador2 = Entrenador()
-    seleccionarPokemonAutomatico(listapokemons, entrenador2, 2)
+    seleccionarPokemon(listapokemons, entrenador2, 2)
 
     println("")
     //Comienza el combate
