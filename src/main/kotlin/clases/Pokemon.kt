@@ -89,4 +89,8 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
         println("no se encuentra el ataque")
         return atacar()
     }
+
+    fun ataqueAutomatico():Ataque{
+        return ataques.random()
+    }
 }
