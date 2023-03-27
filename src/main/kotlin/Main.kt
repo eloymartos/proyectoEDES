@@ -80,11 +80,11 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
 
             println("elige pokemon")
             entrenador.pokemonEnCampo = readln().toInt()
-            println("el entrenador $numero sacó a ${entrenador.sacarPokemon().nombre}")
+            println("el entrenador $numero sacó a ${entrenador.pokemonActual().nombre}")
         }
         2->{
-            println("__________________________________\n${ entrenador.sacarPokemon().mostrarAtaques() }\n__________________________________")
-            println("${rival.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().atacar())} \n")
+            println("__________________________________\n${ entrenador.pokemonActual().mostrarAtaques() }\n__________________________________")
+            println("${rival.pokemonActual().recibir_ataque(entrenador.pokemonActual().atacar())} \n")
             Thread.sleep(1000)
         }
         3->{
@@ -96,7 +96,7 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
         println("Te has rendido")
         exitProcess(1)
     }
-    if (rival.sacarPokemon().vida<=0){
+    if (rival.pokemonActual().vida<=0){
         rival.removerPokemon()
         rival.mostrarEquipo()
         if (rival.pierde()) {
@@ -120,17 +120,17 @@ fun turnoIA(entrenador: Entrenador, numero: Int, rival:Entrenador){
     when((1..2).random()){
         1->{
             entrenador.pokemonEnCampo = (1..6).random()
-            println("el entrenador $numero sacó a ${entrenador.sacarPokemon().nombre}")
+            println("el entrenador $numero sacó a ${entrenador.pokemonActual().nombre}")
         }
         2->{
-            val ataque = entrenador.sacarPokemon().ataqueIA()
+            val ataque = entrenador.pokemonActual().ataqueIA()
             println("el entrenador $numero va a usar ${ataque.nombre}!")
-            println("${rival.sacarPokemon().recibir_ataque(ataque)} \n")
+            println("${rival.pokemonActual().recibir_ataque(ataque)} \n")
             Thread.sleep(1000)
         }
         else-> turno(entrenador, numero, rival)
     }
-    if (rival.sacarPokemon().vida<=0){
+    if (rival.pokemonActual().vida<=0){
         rival.removerPokemon()
         rival.mostrarEquipo()
         if (rival.pierde()) {
@@ -293,7 +293,7 @@ fun combatevsIA(listapokemons: Array<Pokemon>){
     entrenador2.mostrarEquipo()
     entrenador2.pokemonEnCampo = (1..6).random()
 
-    println("El entrenador 2 sacará a : ${entrenador2.sacarPokemon().nombre}")
+    println("El entrenador 2 sacará a : ${entrenador2.pokemonActual().nombre}")
     Thread.sleep(1000)
 
     while (true) {

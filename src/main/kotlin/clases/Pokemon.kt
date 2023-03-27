@@ -55,9 +55,9 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
     fun asignarAtaques(listamovimientos : Array<Ataque>){
         var contador = 0
         while (true){
-            var i = listamovimientos.random()
-            if(tipo.efectividad(i) == 1.0 || tipo == i.tipo){
-                ataques.add(i)
+            var nuevo = listamovimientos.random()
+            if(tipo.efectividad(nuevo) == 1.0 || tipo == nuevo.tipo){
+                ataques.add(nuevo)
                 contador ++
                 if(contador == 4) break
             }
