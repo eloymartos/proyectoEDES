@@ -44,7 +44,12 @@ fun main() {
     //Elección de Pokemon por los jugadores
 
     println("quieres jugar 1vs1 o 1vsIA ? ")
-    when(readln()){
+    var lectura = readln()
+    while (lectura !in arrayOf("1vs1", "IA")) {
+        println("error, escribe de nuevo")
+        lectura = readln()
+    }
+    when(lectura){
         "1vs1"->{
             val entrenador1 = Entrenador()
             seleccionarPokemon(listapokemons, entrenador1, 1)
