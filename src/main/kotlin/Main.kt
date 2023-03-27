@@ -62,7 +62,7 @@ fun main() {
 
     println("Entrenador 2, con que pokemon quieres empezar:")
     entrenador2.mostrarEquipo()
-    entrenador2.pokemonEnCampo = readln().toInt()
+    entrenador2.pokemonEnCampo = (1..6).random()
     Thread.sleep(1000)
 
     while (true) {
