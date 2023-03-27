@@ -49,7 +49,7 @@ fun main() {
 
 
     val entrenador2 = Entrenador()
-    seleccionarPokemon(listapokemons, entrenador2, 2)
+    seleccionarPokemonAutomatico(listapokemons, entrenador2, 2)
 
     println("")
     //Comienza el combate
@@ -199,6 +199,43 @@ fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : 
             }
         }
         contador += 1
+    }
+    entrenador.mostrarEquipo()
+
+}
+
+fun seleccionarPokemonAutomatico(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
+    println("RIVAL")
+    var opcion :Int
+    for (i in 0..5){
+        opcion = (1..12).random()
+        when (opcion){
+            1 -> {entrenador.agregarPokemon(lista[0])}
+            2 -> {entrenador.agregarPokemon(lista[1])}
+            3 -> {entrenador.agregarPokemon(lista[2])}
+            4 -> {entrenador.agregarPokemon(lista[3])}
+            5 -> {entrenador.agregarPokemon(lista[4])}
+            6 -> {entrenador.agregarPokemon(lista[5])}
+            7 -> {entrenador.agregarPokemon(lista[6])}
+            8 -> {entrenador.agregarPokemon(lista[7])}
+            9 -> {entrenador.agregarPokemon(lista[8])}
+            10 -> {entrenador.agregarPokemon(lista[9])}
+            11 -> {entrenador.agregarPokemon(lista[10])}
+            12 -> {entrenador.agregarPokemon(lista[11])}
+            0-> {
+                if (entrenador.pierde()) {
+                    println("error, equipo vacio")
+                    seleccionarPokemon(lista, entrenador, numero)
+                }
+                break
+            }
+            else ->{
+                if (entrenador.pierde()) {
+                    println("error")
+                    seleccionarPokemon(lista, entrenador, numero)
+                }
+            }
+        }
     }
     entrenador.mostrarEquipo()
 
