@@ -43,6 +43,9 @@ fun main() {
     }
     //Elección de Pokemon por los jugadores
 
+    /**
+     * ### Menú para seleccionar el modo de juego, puede ser jugador contra jugador o jugador contra la máquina
+     */
     println("quieres jugar 1vs1 o 1vsIA ? ")
     var lectura = readln()
     while (lectura !in arrayOf("1vs1", "IA")) {
@@ -106,6 +109,11 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
 
 }
 
+/**
+ * ### Funcion [turno_automatico]
+ *
+ * @return Es el turno que usa la IA, es automatico entero
+ */
 fun turno_automatico(entrenador: Entrenador, numero: Int, rival:Entrenador){
     println("turno del jugador $numero!")
     Thread.sleep(1000)
@@ -185,6 +193,11 @@ fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : 
 
 }
 
+/**
+ * ### Funcion [seleccionarPokemonAutomatico]
+ *
+ * @return Funcion la cual selecciona el equipo de los 6 Pokemons de forma automatica, usada por la IA
+ */
 fun seleccionarPokemonAutomatico(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
     println("RIVAL")
     var opcion :Int
@@ -222,6 +235,11 @@ fun seleccionarPokemonAutomatico(lista : Array<Pokemon>, entrenador: Entrenador,
 
 }
 
+/**
+ * ### Funcion [combate1VS1]
+ *
+ * @return Funcion que se usa para simular el combate entre un jugador y otro
+ */
 fun combate1VS1(listapokemons:Array<Pokemon>){
         val entrenador1 = Entrenador()
         seleccionarPokemon(listapokemons, entrenador1, 1)
@@ -255,6 +273,11 @@ fun combate1VS1(listapokemons:Array<Pokemon>){
         }
 }
 
+/**
+ * Funcion [combatevsIA]
+ *
+ * @return Combate que simula la batalla entre un jugador y la IA
+ */
 fun combatevsIA(listapokemons: Array<Pokemon>){
 
     val entrenador1 = Entrenador()

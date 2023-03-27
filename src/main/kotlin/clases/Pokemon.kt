@@ -90,6 +90,11 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
         return atacar()
     }
 
+    /**
+     * ### Funcion [ataqueAutomatico]
+     *
+     * @return Funcion que usa la IA para atacar.
+     */
     fun ataqueAutomatico():Ataque{
         return ataques.random()
     }

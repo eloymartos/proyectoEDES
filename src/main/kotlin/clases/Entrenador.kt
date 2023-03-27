@@ -62,6 +62,12 @@ class Entrenador {
             }
         }
     }
+
+    /**
+     * ### Función [sacarPokemon]
+     *
+     * @return Cambia al pokemon activo en batalla por uno del equipo
+     */
     fun sacarPokemon():Pokemon{
         return equipo[pokemonEnCampo]!!
     }
