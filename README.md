@@ -8,6 +8,7 @@
 ---
 
 En este proyecto hemos realizado la simulacion de un combate pokemon en kotlin
+la rama que se pone por defecto es AAAA, la que deberia ser la principal es main
 
 **Perfil Github Eloy: <https://github.com/eloymartos> <br>**
 **Perfil Github Josema: <https://github.com/JoseManuelLuque>**
