@@ -118,7 +118,6 @@ fun turno_automatico(entrenador: Entrenador, numero: Int, rival:Entrenador){
     println("turno del jugador $numero!")
     Thread.sleep(1000)
     println("Qué quieres hacer ?\ncambiar = 1\natacar = 2\nrendirse = 3")
-    var pierde = false
     when((1..2).random()){
         1->{
             entrenador.mostrarEquipo()
