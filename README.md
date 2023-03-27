@@ -35,5 +35,21 @@ Documento de refactorizacion = <a href="https://github.com/eloymartos/proyectoED
 `AtacarIA, que devuelve un ataque random para que use la IA ` 
 
 ### Clase Entrenador
-`Esta es independiente, tiene un array de 3 pokemon`
+`Esta es independiente, tiene un array de 3 pokemon y un valor que se llama pokemonencampo, representa la posicion en la lista del pokemon en campo` <hr>
+`Tiene las funciones : ` <br>
+`AgregarPokemon, que recibe un pokemon que añade a la primera posicion libre que vea en el equipo` <br>
+`RemoverPokemon, que quita el pokemon que haya en campo` <br>
+`MostrarEquipo, bastante descriptivo` <br>
+`PokemonActual, devuelve el pokemon actual` <br>
+`Pierde, si todo el equipo está vacío, devuelve True, si no, False`
+
 ### Clase Main
+`Es la clase main del proyecto, en esta se crean una lista de pokemons, una de movimientos,asigna movimientos a todos los pokemons , te pide si vas a jugar 1vs1 o 1vsIA, y segun lo que escribas hace una cosa u otra` <hr>
+`Tiene bastantes funciones, bastante grandes : ` <br>
+
+`seleccionarPokemon, que va pidiendo de forma manual que pokemon quieres, si pones 0 y ya tienes 1 pokemon no te pide mas` <br>
+`seleccionarPokemonIa, lo mismo pero automatico` <br>
+`Turno, te pide qué hacer, segun lo que elijas hace lo necesario, cambiar de pokemon, atacar o rendirse` <br>
+`TurnoIA, que hace un turno automatico, destinado a ser usado por la IA` <br>
+`Combate1vs1, va avanzando el combate, pide pokemon a sacar de primeras a los dos y ejecuta turnos hasta que uno de los dos pierda` <br>
+`CombatevsIA, lo mismo, pero a ti te pide tus opciones, a la ia usa sus funciones automatizadas`

@@ -194,7 +194,7 @@ fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : 
  *
  * @return Funcion la cual selecciona el equipo de los 6 Pokemons de forma automatica, usada por la IA
  */
-fun seleccionarPokemonIA(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
+fun seleccionarPokemonIA(lista : Array<Pokemon>, entrenador: Entrenador){
     println("RIVAL")
     var opcion :Int
     for (i in 0..5){
@@ -212,19 +212,6 @@ fun seleccionarPokemonIA(lista : Array<Pokemon>, entrenador: Entrenador, numero 
             10 -> {entrenador.agregarPokemon(lista[9])}
             11 -> {entrenador.agregarPokemon(lista[10])}
             12 -> {entrenador.agregarPokemon(lista[11])}
-            0-> {
-                if (entrenador.pierde()) {
-                    println("error, equipo vacio")
-                    seleccionarPokemon(lista, entrenador, numero)
-                }
-                break
-            }
-            else ->{
-                if (entrenador.pierde()) {
-                    println("error")
-                    seleccionarPokemon(lista, entrenador, numero)
-                }
-            }
         }
     }
     entrenador.mostrarEquipo()
@@ -278,7 +265,7 @@ fun combatevsIA(listapokemons: Array<Pokemon>){
     seleccionarPokemon(listapokemons, entrenador1, 1)
 
     val entrenador2 = Entrenador()
-    seleccionarPokemonIA(listapokemons, entrenador2, 2)
+    seleccionarPokemonIA(listapokemons, entrenador2)
 
     println("")
     //Comienza el combate
