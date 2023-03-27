@@ -35,16 +35,6 @@ class Pokemon(nombre:String, lore:String, tipo:String, vida:Int):Tipo("") {
         return if (vida>0)"a $nombre le quedan $vida ps" else "$nombre ha muerto"
     }
 
-    /**
-     * ### Funcion [toString]
-     *
-     * @return Devuelve una cadena con el nombre y la vida restante del Pokemon
-     */
-
-    override fun toString(): String {
-        return "a $nombre le quedan ${vida.toInt()} ps"
-    }
-
 
     /**
      * ### Funcion [asignarAtaques]
