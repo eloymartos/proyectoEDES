@@ -117,18 +117,15 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
 fun turno_automatico(entrenador: Entrenador, numero: Int, rival:Entrenador){
     println("turno del jugador $numero!")
     Thread.sleep(1000)
-    println("Qué quieres hacer ?\ncambiar = 1\natacar = 2\nrendirse = 3")
     when((1..2).random()){
         1->{
-            entrenador.mostrarEquipo()
-            Thread.sleep(1000)
-
-            println("elige pokemon")
             entrenador.pokemonEnCampo = (1..6).random()
             println("el entrenador $numero sacó a ${entrenador.sacarPokemon().nombre}")
         }
         2->{
-            println("${rival.sacarPokemon().recibir_ataque(entrenador.sacarPokemon().ataqueAutomatico())} \n")
+            val ataque = entrenador.sacarPokemon().ataqueAutomatico()
+            println("el entrenador $numero va a usar ${ataque.nombre}!")
+            println("${rival.sacarPokemon().recibir_ataque(ataque)} \n")
             Thread.sleep(1000)
         }
         else-> turno(entrenador, numero, rival)
