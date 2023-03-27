@@ -110,11 +110,11 @@ fun turno(entrenador: Entrenador, numero: Int, rival:Entrenador){
 }
 
 /**
- * ### Funcion [turno_automatico]
+ * ### Funcion [turnoIA]
  *
  * @return Es el turno que usa la IA, es automatico entero
  */
-fun turno_automatico(entrenador: Entrenador, numero: Int, rival:Entrenador){
+fun turnoIA(entrenador: Entrenador, numero: Int, rival:Entrenador){
     println("turno del jugador $numero!")
     Thread.sleep(1000)
     when((1..2).random()){
@@ -123,7 +123,7 @@ fun turno_automatico(entrenador: Entrenador, numero: Int, rival:Entrenador){
             println("el entrenador $numero sacó a ${entrenador.sacarPokemon().nombre}")
         }
         2->{
-            val ataque = entrenador.sacarPokemon().ataqueAutomatico()
+            val ataque = entrenador.sacarPokemon().ataqueIA()
             println("el entrenador $numero va a usar ${ataque.nombre}!")
             println("${rival.sacarPokemon().recibir_ataque(ataque)} \n")
             Thread.sleep(1000)
@@ -190,11 +190,11 @@ fun seleccionarPokemon(lista : Array<Pokemon>, entrenador: Entrenador, numero : 
 }
 
 /**
- * ### Funcion [seleccionarPokemonAutomatico]
+ * ### Funcion [seleccionarPokemonIA]
  *
  * @return Funcion la cual selecciona el equipo de los 6 Pokemons de forma automatica, usada por la IA
  */
-fun seleccionarPokemonAutomatico(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
+fun seleccionarPokemonIA(lista : Array<Pokemon>, entrenador: Entrenador, numero : Int){
     println("RIVAL")
     var opcion :Int
     for (i in 0..5){
@@ -240,8 +240,6 @@ fun combate1VS1(listapokemons:Array<Pokemon>){
         val entrenador1 = Entrenador()
         seleccionarPokemon(listapokemons, entrenador1, 1)
 
-
-
         val entrenador2 = Entrenador()
         seleccionarPokemon(listapokemons, entrenador2, 2)
 
@@ -280,7 +278,7 @@ fun combatevsIA(listapokemons: Array<Pokemon>){
     seleccionarPokemon(listapokemons, entrenador1, 1)
 
     val entrenador2 = Entrenador()
-    seleccionarPokemonAutomatico(listapokemons, entrenador2, 2)
+    seleccionarPokemonIA(listapokemons, entrenador2, 2)
 
     println("")
     //Comienza el combate
@@ -302,7 +300,7 @@ fun combatevsIA(listapokemons: Array<Pokemon>){
 
         turno(entrenador1, 1, entrenador2)
 
-        turno_automatico(entrenador2, 2, entrenador1)
+        turnoIA(entrenador2, 2, entrenador1)
 
     }
 

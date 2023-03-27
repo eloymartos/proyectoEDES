@@ -54,7 +54,8 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
      */
     fun asignarAtaques(listamovimientos : Array<Ataque>){
         var contador = 0
-        for(i in listamovimientos){
+        while (true){
+            var i = listamovimientos.random()
             if(tipo.efectividad(i) == 1.0 || tipo == i.tipo){
                 ataques.add(i)
                 contador ++
@@ -91,11 +92,11 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, vida:Int) {
     }
 
     /**
-     * ### Funcion [ataqueAutomatico]
+     * ### Funcion [ataqueIA]
      *
      * @return Funcion que usa la IA para atacar.
      */
-    fun ataqueAutomatico():Ataque{
+    fun ataqueIA():Ataque{
         return ataques.random()
     }
 }
